@@ -17,8 +17,8 @@ $(document).ready(function () {
 
 //Create column for times 
   var hoursArray = ["8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6"];
-  var hoursArrayIndex = 0;
-  console.log(hoursArrayIndex);
+//   var hoursArrayIndex = 0;
+//   console.log(hoursArrayIndex);
   var calRowEl = $("<div>").addClass("row");
   var calHourColumnsEl= $("<div>").addClass("col-1 hour");
   var timeBlockEl = $("<div>").addClass("container time-block");
@@ -34,11 +34,10 @@ $(document).ready(function () {
     console.log(calHours); //WORKS
     //Create calendar rows/columns w/ all other given CSS elements
     //Append calendar rows to the "time table" styling
-    $(calRowEl).append(calHourColumnsEl.text(hoursArray[i]));
+    $(calRowEl).append(calHourColumnsEl.text(calHours));
     $(calRowEl).append(eventEl);
     $(timeBlockEl).append(calRowEl);
     $(".container").append(timeBlockEl);
-    i++;
   }
 }
 scheduleApperance();
