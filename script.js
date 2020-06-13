@@ -6,44 +6,46 @@ $(document).ready(function () {
   //Saved in local storage
 
   //**Create variables**//
+
+  //Create date/time 
   var date = moment().format("dddd, MMMM Do");
   console.log(date);
-  var calRowEl = $("<row>");
- 
+  //Display date under header
+  $("#currentDay").text(date);
+  var currentTime = moment().format('LTS');
+  console.log(currentTime);
 
-  var hoursArray = [
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-  ];
+//Create column for times 
+  var hoursArray = ["8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6"];
   var hoursArrayIndex = 0;
   console.log(hoursArrayIndex);
+  var calRowEl = $("<div>").addClass("row");
+  var calHourColumnsEl= $("<div>").addClass("col-1 hour");
+  var timeBlockEl = $("<div>").addClass("container time-block");
+  var eventEl = $("<div>").addClass("col-10");
+  var saveButtonColEl = $("<div>").addClass("col-1 saveBtn");
+
   //**Function definitions**//
-
-  //Create date/time under heading
-  $("#currentDay").text(date);
-//Push time into rows
-   //For loop for array of hours, push to calendar rows
-for(var i = 0; i < hoursArray.length; i++){
-var calHours = hoursArray[i];
-console.log(calHours); //WORKS
-//Create rows for each hour
-//Append calendar rows to the "time table" styling
-calRowEl.text(hoursArray[i]);
-calRowEl.addClass("row'"); //??
-$("#cal-container").append(calRowEl)
-
-};
-
+  //Push time into rows
+  //For loop for array of hours
+  function scheduleApperance () {
+      for (var i = 0; i < hoursArray.length; i++){
+    var calHours = hoursArray[i];
+    console.log(calHours); //WORKS
+    //Create calendar rows/columns w/ all other given CSS elements
+    //Append calendar rows to the "time table" styling
+    $(calRowEl).append(calHourColumnsEl.text(hoursArray[i]));
+    $(calRowEl).append(eventEl);
+    $(timeBlockEl).append(calRowEl);
+    $(".container").append(timeBlockEl);
+    i++;
+  }
+}
+scheduleApperance();
   //**Function calls**//
 
   //**Event listeners**//
+
+
+
 });
