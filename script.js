@@ -20,9 +20,9 @@ $(document).ready(function () {
 //   var hoursArrayIndex = 0;
 //   console.log(hoursArrayIndex);
   var calRowEl = $("<div>").addClass("row");
+  var eventEl = $("<div>").addClass("col-10 textarea") //style?
   var calHourColumnsEl= $("<div>").addClass("col-1 hour");
-  var timeBlockEl = $("<div>").addClass("container time-block");
-  var eventEl = $("<div>").addClass("col-10");
+  var timeBlockEl = $("<div>").addClass("container time-block");;
   var saveButtonColEl = $("<div>").addClass("col-1 saveBtn");
 
   //**Function definitions**//
@@ -38,6 +38,9 @@ $(document).ready(function () {
     $(calRowEl).append(eventEl);
     $(timeBlockEl).append(calRowEl);
     $(".container").append(timeBlockEl);
+    $(calRowEl).append(saveButtonColEl);
+    $(eventEl).text("hello");
+    $(saveButtonColEl).text("SAVE");
   }
 }
 scheduleApperance();
