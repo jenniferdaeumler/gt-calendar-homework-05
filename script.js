@@ -34,7 +34,8 @@ $(document).ready(function () {
     console.log(calHours); //WORKS
     //Create calendar rows/columns w/ all other given CSS elements
     //Append calendar rows to the "time table" styling
-    $(calRowEl).append(calHourColumnsEl.text(calHours));
+    $(calRowEl).append(calHourColumnsEl);
+    $(calHourColumnsEl).text(calHours);
     $(calRowEl).append(eventEl);
     $(timeBlockEl).append(calRowEl);
     $(".container").append(timeBlockEl);
