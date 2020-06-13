@@ -8,6 +8,8 @@ $(document).ready(function () {
   //**Create variables**//
   var date = moment().format("dddd, MMMM Do");
   console.log(date);
+  var calRowEl = $("<row>");
+ 
 
   var hoursArray = [
     "0000",
@@ -45,12 +47,13 @@ $(document).ready(function () {
    //For loop for array of hours, push to calendar rows
 for(var i = 0; i < hoursArray.length; i++){
 var calHours = hoursArray[i];
-console.log(calHours);
+console.log(calHours); //WORKS
 //Create rows for each hour
-var calRows = $("<div class=row style='row' id='hours-rows'>")
 //Append calendar rows to the "time table" styling
-$("calHours").append(calRows);
-console.log(calRows)
+calRowEl.text(hoursArray[i]);
+calRowEl.addClass("row'"); //??
+$("#cal-container").append(calRowEl)
+
 };
 
   //**Function calls**//
