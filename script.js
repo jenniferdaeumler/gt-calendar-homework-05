@@ -12,19 +12,18 @@ $(document).ready(function () {
   console.log(date);
   //Display date under header
   $("#currentDay").text(date);
-  var currentTime = moment().format("LTS");
+  //Moment time "09" = 9:00am
+  var currentTime = moment().format("HH");
   console.log(currentTime);
 
   //Create array for times
   var hoursArray = ["8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6"];
   //   var hoursArrayIndex = 0;
   //   console.log(hoursArrayIndex);
-  var calRowEl = $("<div>").addClass("row");
-  var eventEl = $("<div>").addClass("col-10 textarea time-sensitive"); //style?
-  var calHourColumnsEl = $("<div>").addClass("col-1 hour");
-  var timeBlockEl = $("<div>").addClass("container time-block");
-  var saveButtonColEl = $("<div>").addClass("col-1 display-icon saveBtn btn");
-  saveButtonColEl.addClass("i fas fa-lock");
+//   var calRowEl = $("<div class='row'>");
+//   var eventEl = $("<div class= 'col-10 textarea time-sensitive'>"); //style?
+//   var calHourColumnsEl = $("<div class= 'col-1 hour'>");
+//   var saveButtonColEl = $("<div class= 'col-1 display-icon saveBtn btn i fas fa-lock'>");
 //   saveButtonColEl.attr("style",{textAlign:"center"});
   //do I need to create <p> inside of event rows for text?
 
@@ -38,21 +37,23 @@ $(document).ready(function () {
       //Create calendar rows/columns w/ all other given CSS elements
       //Append calendar rows to the "time table" styling
       //Column for hours
-      $(calRowEl).append(calHourColumnsEl);
+      var calRowEl = $("<div class='row time-block'>");
+      var eventEl = $("<textarea class= 'col-10 time-sensitive'>"); //style?
+      var calHourColumnsEl = $("<div class= 'col-1 hour'>");
+      var saveButtonColEl = $("<div class= 'col-1 display-icon saveBtn btn i fas fa-lock'>");
+      calRowEl.append(calHourColumnsEl);
       //Hour of day text inside column
-      $(calHourColumnsEl).text(calHours);
+      calHourColumnsEl.text(calHours);
       //Schedule events column
-      $(calRowEl).append(eventEl);
-      //The container
-      $(timeBlockEl).append(calRowEl);
-      $(".container").append(timeBlockEl);
+      calRowEl.append(eventEl);
+      calRowEl.append(saveButtonColEl);
+      $(".container").append(calRowEl);
       //Save button
-      $(calRowEl).append(saveButtonColEl);
     }
   }
   scheduleApperance();
 
-  //conditions for styling rows based on time
+  //Conditions for styling rows based on time
   function hourRowColors() {
     if (eventEl === currentTime) {
       $(eventEl).addClass("present");
