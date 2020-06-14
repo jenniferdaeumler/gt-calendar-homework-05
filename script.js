@@ -51,23 +51,30 @@ $(document).ready(function () {
       calHourColumnsEl.text(calHours);
       //Containter appended with all row elements 
       $(".container").append(calRowEl);
-      //Save button
     }
+    //Conditional for styling event columns based on time of day using moment
+    if (calHourColumnsEl = currentTime){
+        $(eventEl).addClass("present");
+      } else if (calHourColumnsEl < currentTime) {
+        $(eventEl).addClass("past");
+      } else {
+        $(eventEl).addClass("future");
+      }
   }
   scheduleApperance();
 
   //   //Conditions for styling rows based on time
 
-    function hourRowColors() {
-      if (eventEl === currentTime) {
-        $(eventEl).addClass("present");
-      } else if (eventEl < currentTime) {
-        $(eventEl).addClass("past");
-      } else {
-        $(eventEl).addClass("future");
-      }
-    }
-    hourRowColors();
+    // function hourRowColors() {
+    //   if (calRowEl = "9AM"){
+    //     $(eventEl).addClass("present");
+    //   } else if (eventEl < currentTime) {
+    //     $(eventEl).addClass("past");
+    //   } else {
+    //     $(eventEl).addClass("future");
+    //   }
+    // }
+    // hourRowColors();
 
   //**Function calls**//
 
