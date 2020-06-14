@@ -13,20 +13,22 @@ $(document).ready(function () {
   //Display date under header
   $("#currentDay").text(date);
   //Moment time "09" = 9:00am
-  var currentTime = moment().format("HH");
+  var currentTime = moment().format("hA");
   console.log(currentTime);
 
   //Create array for times
-  var hoursArray = ["8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6"];
-  //   var hoursArrayIndex = 0;
-  //   console.log(hoursArrayIndex);
-//   var calRowEl = $("<div class='row'>");
-//   var eventEl = $("<div class= 'col-10 textarea time-sensitive'>"); //style?
-//   var calHourColumnsEl = $("<div class= 'col-1 hour'>");
-//   var saveButtonColEl = $("<div class= 'col-1 display-icon saveBtn btn i fas fa-lock'>");
-//   saveButtonColEl.attr("style",{textAlign:"center"});
-  //do I need to create <p> inside of event rows for text?
-
+  var hoursArray = [
+    "9AM",
+    "10AM",
+    "11AM",
+    "12PM",
+    "1PM",
+    "2PM",
+    "3PM",
+    "4PM",
+    "5PM",
+  ];
+  
   //**Function definitions**//
   //Push time into rows
   //For loop for array of hours
@@ -40,7 +42,9 @@ $(document).ready(function () {
       var calRowEl = $("<div class='row time-block'>");
       var eventEl = $("<textarea class= 'col-10 time-sensitive'>"); //style?
       var calHourColumnsEl = $("<div class= 'col-1 hour'>");
-      var saveButtonColEl = $("<div class= 'col-1 display-icon saveBtn btn i fas fa-lock'>");
+      var saveButtonColEl = $(
+        "<div class= 'col-1 display-icon saveBtn btn i fas fa-lock'>"
+      );
       calRowEl.append(calHourColumnsEl);
       //Hour of day text inside column
       calHourColumnsEl.text(calHours);
@@ -52,17 +56,17 @@ $(document).ready(function () {
   }
   scheduleApperance();
 
-//   //Conditions for styling rows based on time
-//   function hourRowColors() {
-//     if (eventEl === currentTime) {
-//       $(eventEl).addClass("present");
-//     } else if (eventEl < currentTime) {
-//       $(eventEl).addClass("past");
-//     } else {
-//       $(eventEl).addClass("future");
-//     }
-//   }
-//   hourRowColors();
+  //   //Conditions for styling rows based on time
+  //   function hourRowColors() {
+  //     if (eventEl === currentTime) {
+  //       $(eventEl).addClass("present");
+  //     } else if (eventEl < currentTime) {
+  //       $(eventEl).addClass("past");
+  //     } else {
+  //       $(eventEl).addClass("future");
+  //     }
+  //   }
+  //   hourRowColors();
 
   //**Function calls**//
 
