@@ -45,25 +45,24 @@ $(document).ready(function () {
       //Hour of day text inside column
       calHourColumnsEl.text(calHours);
       //Schedule events column
-      calRowEl.append(eventEl);
-      calRowEl.append(saveButtonColEl);
+      calRowEl.append(eventEl).append(saveButtonColEl);
       $(".container").append(calRowEl);
       //Save button
     }
   }
   scheduleApperance();
 
-  //Conditions for styling rows based on time
-  function hourRowColors() {
-    if (eventEl === currentTime) {
-      $(eventEl).addClass("present");
-    } else if (eventEl < currentTime) {
-      $(eventEl).addClass("past");
-    } else {
-      $(eventEl).addClass("future");
-    }
-  }
-  hourRowColors();
+//   //Conditions for styling rows based on time
+//   function hourRowColors() {
+//     if (eventEl === currentTime) {
+//       $(eventEl).addClass("present");
+//     } else if (eventEl < currentTime) {
+//       $(eventEl).addClass("past");
+//     } else {
+//       $(eventEl).addClass("future");
+//     }
+//   }
+//   hourRowColors();
 
   //**Function calls**//
 
