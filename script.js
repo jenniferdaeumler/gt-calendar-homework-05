@@ -51,9 +51,19 @@ $(document).ready(function () {
       calHourColumnsEl.text(calHours);
       //Containter appended with all row elements
       $(".container").append(calRowEl);
+
+      if (calHours.match(currentTime)) {
+        $(eventEl).addClass("present")
+    }
+        else if(calHours<currentTime){
+            $(eventEl).addClass("past");
+        }
+        else{
+            $(eventEl).addClass("future");
+        }
+      
     }
     //Conditional for styling event columns based on time of day using moment
- 
   }
   scheduleApperance();
 
