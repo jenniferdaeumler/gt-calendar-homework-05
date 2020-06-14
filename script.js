@@ -75,6 +75,8 @@ $(document).ready(function () {
 
 $(".saveBtn").on("click",function(event){
     event.preventDefault();
+    var activityText = $(".textarea").value;
+    localStorage.setItem(activityText, "text");
     console.log("clicked save");
 })
 
