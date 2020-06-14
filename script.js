@@ -72,12 +72,20 @@ $(document).ready(function () {
   //**Function calls**//
 
   //**Event listeners**//
-
+//Undefined key, value text way, no console errors
 $(".saveBtn").on("click",function(event){
     event.preventDefault();
+    var activityText = $(".textarea").value;
+    localStorage.setItem(activityText, "text");
     console.log("clicked save");
 })
 
-
+//NULL way, no console errors
+var activityText = JSON.parse(localStorage.getItem(".textarea"));
+$(".saveBtn").on("click", function (event) {
+    event.preventDefault();
+    localStorage.setItem(activityText, JSON.stringify(activityText));
+    console.log("clicked save");
+});
   //End .ready
 });
