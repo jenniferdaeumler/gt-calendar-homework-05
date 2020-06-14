@@ -28,7 +28,7 @@ $(document).ready(function () {
     "4PM",
     "5PM",
   ];
-  
+
   //**Function definitions**//
   //Push time into rows
   //For loop for array of hours
@@ -45,11 +45,11 @@ $(document).ready(function () {
       var saveButtonColEl = $(
         "<div class= 'col-1 display-icon saveBtn btn i fas fa-lock'>"
       );
-      calRowEl.append(calHourColumnsEl);
-      //Hour of day text inside column
+      //Row appended with items
+      calRowEl.append(calHourColumnsEl).append(eventEl).append(saveButtonColEl);
+      //Hour column append
       calHourColumnsEl.text(calHours);
-      //Schedule events column
-      calRowEl.append(eventEl).append(saveButtonColEl);
+      //Containter appended with all row elements 
       $(".container").append(calRowEl);
       //Save button
     }
@@ -57,16 +57,17 @@ $(document).ready(function () {
   scheduleApperance();
 
   //   //Conditions for styling rows based on time
-  //   function hourRowColors() {
-  //     if (eventEl === currentTime) {
-  //       $(eventEl).addClass("present");
-  //     } else if (eventEl < currentTime) {
-  //       $(eventEl).addClass("past");
-  //     } else {
-  //       $(eventEl).addClass("future");
-  //     }
-  //   }
-  //   hourRowColors();
+
+    function hourRowColors() {
+      if (eventEl === currentTime) {
+        $(eventEl).addClass("present");
+      } else if (eventEl < currentTime) {
+        $(eventEl).addClass("past");
+      } else {
+        $(eventEl).addClass("future");
+      }
+    }
+    hourRowColors();
 
   //**Function calls**//
 
