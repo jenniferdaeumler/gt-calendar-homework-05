@@ -31,12 +31,13 @@ $(document).ready(function () {
   //For loop for array of hours
   function scheduleApperance() {
     for (var i = 0; i < hoursArray.length; i++) {
-      var calHours = hoursArray[i];
-      console.log(calHours); //WORKS
-      //Create calendar rows/columns w/ all other given CSS elements
-      //Append calendar rows to the "time table" styling
+        console.log(hoursArray[i]);
+      // calHours= hoursArray[i]; //Looks the same as when I replaced text.(hoursArray[i] with calHours)
+      // console.log(calHours); //WORKS
+    //Create calendar rows/columns w/ all other given CSS elements
+    //Append calendar rows to the "time table" styling
       $(calRowEl).append(calHourColumnsEl);
-      $(calHourColumnsEl).text(calHours);
+      $(calHourColumnsEl).text(hoursArray[i]);
       $(calRowEl).append(eventEl);
       $(timeBlockEl).append(calRowEl);
       $(".container").append(timeBlockEl);
