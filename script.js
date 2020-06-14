@@ -43,42 +43,31 @@ $(document).ready(function () {
       var eventEl = $("<textarea class= 'col-10 time-sensitive'>"); //style?
       var calHourColumnsEl = $("<div class= 'col-1 hour'>");
       var saveButtonColEl = $(
-        "<div class= 'col-1 display-icon saveBtn btn i fas fa-lock'>"
+        "<div class= 'col-1 btn saveBtn display-icon i fas fa-lock'>"
       );
       //Row appended with items
       calRowEl.append(calHourColumnsEl).append(eventEl).append(saveButtonColEl);
       //Hour column append
       calHourColumnsEl.text(calHours);
-      //Containter appended with all row elements 
+      //Containter appended with all row elements
       $(".container").append(calRowEl);
     }
     //Conditional for styling event columns based on time of day using moment
-    if (calHourColumnsEl = currentTime){
-        $(eventEl).addClass("present");
-      } else if (calHourColumnsEl < currentTime) {
-        $(eventEl).addClass("past");
-      } else {
-        $(eventEl).addClass("future");
-      }
+ 
   }
   scheduleApperance();
 
-  //   //Conditions for styling rows based on time
 
-    // function hourRowColors() {
-    //   if (calRowEl = "9AM"){
-    //     $(eventEl).addClass("present");
-    //   } else if (eventEl < currentTime) {
-    //     $(eventEl).addClass("past");
-    //   } else {
-    //     $(eventEl).addClass("future");
-    //   }
-    // }
-    // hourRowColors();
 
   //**Function calls**//
 
   //**Event listeners**//
+
+$(".saveBtn").on("click",function(event){
+    event.preventDefault();
+    console.log("clicked save");
+})
+
 
   //End .ready
 });
