@@ -15,7 +15,7 @@ $(document).ready(function () {
   var currentTime = moment().format("LTS");
   console.log(currentTime);
 
-  //Create column for times
+  //Create array for times
   var hoursArray = ["8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6"];
   //   var hoursArrayIndex = 0;
   //   console.log(hoursArrayIndex);
@@ -25,6 +25,7 @@ $(document).ready(function () {
   var timeBlockEl = $("<div>").addClass("container time-block");
   var saveButtonColEl = $("<div>").addClass("col-1 display-icon saveBtn btn");
   saveButtonColEl.addClass("i fas fa-lock");
+//   saveButtonColEl.attr("style",{textAlign:"center"});
   //do I need to create <p> inside of event rows for text?
 
   //**Function definitions**//
@@ -36,7 +37,6 @@ $(document).ready(function () {
       console.log(calHours); //WORKS
       //Create calendar rows/columns w/ all other given CSS elements
       //Append calendar rows to the "time table" styling
-
       //Column for hours
       $(calRowEl).append(calHourColumnsEl);
       //Hour of day text inside column
