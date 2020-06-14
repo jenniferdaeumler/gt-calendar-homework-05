@@ -20,10 +20,11 @@ $(document).ready(function () {
   //   var hoursArrayIndex = 0;
   //   console.log(hoursArrayIndex);
   var calRowEl = $("<div>").addClass("row");
-  var eventEl = $("<div>").addClass("col-10 textarea"); //style?
+  var eventEl = $("<div>").addClass("col-10 textarea time-sensitive"); //style?
   var calHourColumnsEl = $("<div>").addClass("col-1 hour");
   var timeBlockEl = $("<div>").addClass("container time-block");
-  var saveButtonColEl = $("<div>").addClass("col-1 saveBtn");
+  var saveButtonColEl = $("<div>").addClass("col-1 display-icon saveBtn btn");
+  saveButtonColEl.addClass("i fas fa-lock");
   //do I need to create <p> inside of event rows for text?
 
   //**Function definitions**//
@@ -31,19 +32,22 @@ $(document).ready(function () {
   //For loop for array of hours
   function scheduleApperance() {
     for (var i = 0; i < hoursArray.length; i++) {
-        console.log(hoursArray[i]);
-      // calHours= hoursArray[i]; //Looks the same as when I replaced text.(hoursArray[i] with calHours)
-      // console.log(calHours); //WORKS
-    //Create calendar rows/columns w/ all other given CSS elements
-    //Append calendar rows to the "time table" styling
+      var calHours = hoursArray[i];
+      console.log(calHours); //WORKS
+      //Create calendar rows/columns w/ all other given CSS elements
+      //Append calendar rows to the "time table" styling
+
+      //Column for hours
       $(calRowEl).append(calHourColumnsEl);
-      $(calHourColumnsEl).text(hoursArray[i]);
+      //Hour of day text inside column
+      $(calHourColumnsEl).text(calHours);
+      //Schedule events column
       $(calRowEl).append(eventEl);
+      //The container
       $(timeBlockEl).append(calRowEl);
       $(".container").append(timeBlockEl);
+      //Save button
       $(calRowEl).append(saveButtonColEl);
-      $(eventEl).text("hello");
-      $(saveButtonColEl).text("SAVE");
     }
   }
   scheduleApperance();
@@ -63,4 +67,6 @@ $(document).ready(function () {
   //**Function calls**//
 
   //**Event listeners**//
+
+  //End .ready
 });
