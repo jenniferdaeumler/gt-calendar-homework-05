@@ -13,22 +13,23 @@ $(document).ready(function () {
   //Display date under header
   $("#currentDay").text(date);
   //Moment time "09" = 9:00am
-  var currentTime = moment().format("hA");
+  var currentTime = moment().format("HH");
   console.log(currentTime);
   //Saved activity from localStorage
-  var savedActivity = localStorage.getItem("activity");
+  // var savedActivity = localStorage.getItem(textKey);
+  // console.log(savedActivity);
 
   //Create array for times
   var hoursArray = [
-    "9AM",
-    "10AM",
-    "11AM",
-    "12PM",
-    "1PM",
-    "2PM",
-    "3PM",
-    "4PM",
-    "5PM",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
   ];
 
   //**Function definitions**//
@@ -48,14 +49,12 @@ $(document).ready(function () {
       var saveButtonColEl = $(
         "<div class= 'col-1 btn saveBtn display-icon i fas fa-lock'>"
       );
-        //Hour column append
-        calHourColumnsEl.text(calHours);
+      //Hour column append
+      calHourColumnsEl.text(calHours);
       //Row appended with items
       calRowEl.append(calHourColumnsEl).append(eventEl).append(saveButtonColEl);
-    //ID for rows w/ hours
-    eventEl.attr("id", calHours);
-      //Saved Activity on refresh activity
-      eventEl.text(savedActivity);
+      //ID for rows w/ hours
+      eventEl.attr("id", calHours);
 
       //Container appended with all row elements
       $(".container").append(calRowEl);
@@ -99,7 +98,8 @@ $(document).ready(function () {
     var textKey = $(this).siblings("textarea").attr("id");
     console.log(textKey, textValue);
     localStorage.setItem(textKey, textValue);
-    //console.log("clicked save");
+    var savedActivity = localStorage.getItem(textKey);
+    console.log(savedActivity);
    
   });
   //End .ready
