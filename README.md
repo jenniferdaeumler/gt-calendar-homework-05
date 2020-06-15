@@ -21,14 +21,10 @@ Clone the repo, and run the files in browser.
 If you have a busy schedule, and want to add important events to a daily planner so you can manage your time effectively, this app is for you.  When you open the planner, the current day is displayed at the top.  You can view time blocks for standard business hours.  The time blocks are color coded with past times (gray), present time (red), and future times (green). You can click a time block and type your event for that time.  Click the save icon in the blue box.  Your event is saved in local storage.  If you refresh the page, the saved events persist. 
 
 <br>
-<br>Screen when opening app.
-<img src="https://i.imgur.com/LpJQayp.png">
-<br><br>Screen after clicking button, length of password prompt.
-<img src="https://i.imgur.com/sdc7KWO.png">
-<br><br> One of four character type prompt.  OK for yes, cancel for no.
-<img src="https://i.imgur.com/Rscaej4.png">
-<br><br>Password result after specifications made.
-<img src="https://i.imgur.com/1PD8MhE.png">
+<br>App usage.
+<img src="https://i.imgur.com/fhW3Zlh.png?1">
+<br>
+
 
 ## Credits
 -Solo projected completed as homework for Georgia Tech Full-Stack Flex Program. 

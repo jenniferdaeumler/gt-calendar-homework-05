@@ -61,6 +61,8 @@ $(document).ready(function () {
         else{
             $(eventEl).addClass("future");
         }
+
+    
       
     }
     //Conditional for styling event columns based on time of day using moment
