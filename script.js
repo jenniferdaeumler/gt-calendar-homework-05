@@ -40,7 +40,7 @@ $(document).ready(function () {
       //Append calendar rows to the "time table" styling
       //Column for hours
       var calRowEl = $("<div class='row time-block'>");
-      var eventEl = $("<textarea class= 'col-10 time-sensitive'>"); //style?
+      var eventEl = $("<textarea class= 'col-10 time-sensitive form'>"); //style?
       var calHourColumnsEl = $("<div class= 'col-1 hour'>");
       var saveButtonColEl = $(
         "<div class= 'col-1 btn saveBtn display-icon i fas fa-lock'>"
@@ -54,16 +54,16 @@ $(document).ready(function () {
 
       if (calHours.match(currentTime)) {
         $(eventEl).addClass("present")
-    }
-        else if(calHours<currentTime){
-            $(eventEl).addClass("past");
-        }
-        else{
-            $(eventEl).addClass("future");
-        }
+      }
+      else if (calHours < currentTime) {
+        $(eventEl).addClass("past");
+      }
+      else {
+        $(eventEl).addClass("future");
+      }
 
-    
-      
+
+
     }
     //Conditional for styling event columns based on time of day using moment
   }
@@ -74,20 +74,29 @@ $(document).ready(function () {
   //**Function calls**//
 
   //**Event listeners**//
-//Undefined key, value text way, no console errors
-$(".saveBtn").on("click",function(event){
-    event.preventDefault();
-    var activityText = $(".textarea").value;
-    localStorage.setItem(activityText, "text");
-    console.log("clicked save");
-})
+  // //Undefined key, value text way, no console errors
+  // $(".saveBtn").on("click",function(event){
+  //     event.preventDefault();
+  //     var activityText = $(".textarea").value;
+  //     localStorage.setItem(activityText, "text");
+  //     console.log("clicked save");
+  // })
 
-//NULL way, no console errors
-var activityText = JSON.parse(localStorage.getItem(".textarea"));
-$(".saveBtn").on("click", function (event) {
+  // //NULL way, no console errors
+  // var activityText = JSON.parse(localStorage.getItem(".textarea"));
+  // $(".saveBtn").on("click", function (event) {
+  //     event.preventDefault();
+  //     localStorage.setItem(activityText, JSON.stringify(activityText));
+  //     console.log("clicked save");
+  // });
+
+  $(".saveBtn").on("click", function () {
+    var activityText = JSON.parse(localStorage.getItem(".textarea"));
+    var testTextInput = $(".form").val();
     event.preventDefault();
-    localStorage.setItem(activityText, JSON.stringify(activityText));
-    console.log("clicked save");
-});
+    localStorage.setItem(testTextInput, JSON.stringify(activityText));
+    //  console.log("clicked save");
+    console.log(testTextInput)
+  })
   //End .ready
 });
