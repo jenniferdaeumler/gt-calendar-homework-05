@@ -22,7 +22,7 @@ If you have a busy schedule, and want to add important events to a daily planner
 
 <br>
 <br>App usage.
-<img src="https://i.imgur.com/fhW3Zlh.png?1">
+<img src="https://i.imgur.com/Sd9gPe2.png?1">
 <br>
 
 
