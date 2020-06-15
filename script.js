@@ -91,11 +91,11 @@ $(document).ready(function () {
   // });
 
   $(".saveBtn").on("click", function (event) {
-    var activityText = JSON.parse(localStorage.getItem(".form"));
+    // var activityText = JSON.parse(localStorage.getItem(".form"));
     var testTextInput = $(".form").val();
     event.preventDefault();
-    localStorage.setItem(testTextInput, JSON.stringify(activityText));
-    //  console.log("clicked save");
+    localStorage.setItem("activity",testTextInput);
+    //console.log("clicked save");
     console.log(testTextInput)
   })
   //End .ready
