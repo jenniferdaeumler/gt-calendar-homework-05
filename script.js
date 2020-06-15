@@ -91,7 +91,7 @@ $(document).ready(function () {
   // });
 
   $(".saveBtn").on("click", function () {
-    var activityText = JSON.parse(localStorage.getItem(".textarea"));
+    var activityText = JSON.parse(localStorage.getItem(".form"));
     var testTextInput = $(".form").val();
     event.preventDefault();
     localStorage.setItem(testTextInput, JSON.stringify(activityText));
