@@ -91,14 +91,16 @@ $(document).ready(function () {
   //     console.log("clicked save");
   // });
 
-  $(".saveBtn").on("click", function (event) {
+  $(document).on("click", ".btn", function (event) {
     //this applied anywhere removes everything but 9am!
     // localStorage.getItem("activity");
-    var testTextInput = $(".form").val();
     event.preventDefault();
-    localStorage.setItem("activity", $(".form").val());
+    var textValue = $(this).siblings("textarea").val();
+    var textKey = $(this).siblings("textarea").attr("id");
+    console.log(textKey, textValue);
+    localStorage.setItem(textKey, textValue);
     //console.log("clicked save");
-    console.log(testTextInput);
+   
   });
   //End .ready
 });
