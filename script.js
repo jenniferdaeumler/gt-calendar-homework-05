@@ -94,7 +94,7 @@ $(document).ready(function () {
     // var activityText = JSON.parse(localStorage.getItem(".form"));
     var testTextInput = $(".form").val();
     event.preventDefault();
-    localStorage.setItem(testTextInput,$(".form").val());
+    localStorage.setItem("activity",testTextInput);
     //console.log("clicked save");
     console.log(testTextInput)
   })
