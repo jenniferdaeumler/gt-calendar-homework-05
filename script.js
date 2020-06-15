@@ -90,7 +90,7 @@ $(document).ready(function () {
   //     console.log("clicked save");
   // });
 
-  $(".saveBtn").on("click", function () {
+  $(".saveBtn").on("click", function (event) {
     var activityText = JSON.parse(localStorage.getItem(".form"));
     var testTextInput = $(".form").val();
     event.preventDefault();
