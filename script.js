@@ -15,6 +15,8 @@ $(document).ready(function () {
   //Moment time "09" = 9:00am
   var currentTime = moment().format("hA");
   console.log(currentTime);
+  //Saved activity from localStorage
+  var savedActivity = localStorage.getItem("activity");
 
   //Create array for times
   var hoursArray = [
@@ -32,6 +34,7 @@ $(document).ready(function () {
   //**Function definitions**//
   //Push time into rows
   //For loop for array of hours
+
   function scheduleApperance() {
     for (var i = 0; i < hoursArray.length; i++) {
       var calHours = hoursArray[i];
@@ -49,7 +52,10 @@ $(document).ready(function () {
       calRowEl.append(calHourColumnsEl).append(eventEl).append(saveButtonColEl);
       //Hour column append
       calHourColumnsEl.text(calHours);
-      //Containter appended with all row elements
+      //Saved Activity on refresh activity
+      eventEl.text(savedActivity);
+
+      //Container appended with all row elements
       $(".container").append(calRowEl);
 
       if (calHours.match(currentTime)) {
@@ -84,8 +90,8 @@ $(document).ready(function () {
   // });
 
   $(".saveBtn").on("click", function (event) {
-//this applied anywhere removes everything but 9am!
-    // JSON.parse(localStorage.getItem("activity"));  
+    //this applied anywhere removes everything but 9am!
+    // localStorage.getItem("activity");
     var testTextInput = $(".form").val();
     event.preventDefault();
     localStorage.setItem("activity", $(".form").val());
