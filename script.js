@@ -53,23 +53,16 @@ $(document).ready(function () {
       $(".container").append(calRowEl);
 
       if (calHours.match(currentTime)) {
-        $(eventEl).addClass("present")
-      }
-      else if (calHours < currentTime) {
+        $(eventEl).addClass("present");
+      } else if (calHours < currentTime) {
         $(eventEl).addClass("past");
-      }
-      else {
+      } else {
         $(eventEl).addClass("future");
       }
-
-
-
     }
     //Conditional for styling event columns based on time of day using moment
   }
   scheduleApperance();
-
-
 
   //**Function calls**//
 
@@ -91,12 +84,13 @@ $(document).ready(function () {
   // });
 
   $(".saveBtn").on("click", function (event) {
-    // var activityText = JSON.parse(localStorage.getItem(".form"));
+//this applied anywhere removes everything but 9am!
+    // JSON.parse(localStorage.getItem("activity"));  
     var testTextInput = $(".form").val();
     event.preventDefault();
-    localStorage.setItem("activity",testTextInput);
+    localStorage.setItem("activity", $(".form").val());
     //console.log("clicked save");
-    console.log(testTextInput)
-  })
+    console.log(testTextInput);
+  });
   //End .ready
 });
