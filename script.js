@@ -48,10 +48,12 @@ $(document).ready(function () {
       var saveButtonColEl = $(
         "<div class= 'col-1 btn saveBtn display-icon i fas fa-lock'>"
       );
+        //Hour column append
+        calHourColumnsEl.text(calHours);
       //Row appended with items
       calRowEl.append(calHourColumnsEl).append(eventEl).append(saveButtonColEl);
-      //Hour column append
-      calHourColumnsEl.text(calHours);
+    //ID for rows w/ hours
+    eventEl.attr("id", calHours);
       //Saved Activity on refresh activity
       eventEl.text(savedActivity);
 
