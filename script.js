@@ -20,17 +20,7 @@ $(document).ready(function () {
   // console.log(savedActivity);
 
   //Create array for times
-  var hoursArray = [
-    "09",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14",
-    "15",
-    "16",
-    "17",
-  ];
+  var hoursArray = ["09", "10", "11", "12", "13", "14", "15", "16", "17"];
 
   //**Function definitions**//
   //Push time into rows
@@ -39,6 +29,7 @@ $(document).ready(function () {
   function scheduleApperance() {
     for (var i = 0; i < hoursArray.length; i++) {
       var calHours = hoursArray[i];
+      var value = localStorage.getItem(hoursArray[i]);
       console.log(calHours); //WORKS
       //Create calendar rows/columns w/ all other given CSS elements
       //Append calendar rows to the "time table" styling
@@ -55,13 +46,16 @@ $(document).ready(function () {
       calRowEl.append(calHourColumnsEl).append(eventEl).append(saveButtonColEl);
       //ID for rows w/ hours
       eventEl.attr("id", calHours);
+      eventEl.val(value);
 
       //Container appended with all row elements
       $(".container").append(calRowEl);
 
-      if (calHours.match(currentTime)) {
+
+
+      if (parseInt(calHours) === parseInt(currentTime)) {
         $(eventEl).addClass("present");
-      } else if (calHours < currentTime) {
+      } else if (parseInt(calHours) < parseInt(currentTime)) {
         $(eventEl).addClass("past");
       } else {
         $(eventEl).addClass("future");
@@ -98,9 +92,8 @@ $(document).ready(function () {
     var textKey = $(this).siblings("textarea").attr("id");
     console.log(textKey, textValue);
     localStorage.setItem(textKey, textValue);
-    var savedActivity = localStorage.getItem(textKey);
-    console.log(savedActivity);
-   
+    //var savedActivity = localStorage.getItem(textKey);
+    //console.log(savedActivity);
   });
   //End .ready
 });
